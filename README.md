@@ -1,37 +1,53 @@
-# TaskFlow – Quản lý task miễn phí cho nhóm 2–5 người
+# TaskFlow v3 — GitHub JSON, 2 người dùng ngang quyền
 
-## Chức năng
-- Thêm, sửa, xóa task chính và task nhỏ; danh mục, trạng thái, độ ưu tiên.
-- Người thực hiện, người nhận thông tin, đầu mối liên quan, tên và đường link tài liệu.
-- Ngày bắt đầu, deadline; lịch xem ngày / tuần / tháng.
-- Tìm kiếm / lọc / sắp xếp / thống kê; xuất và nhập JSON.
-- **Chế độ nhóm**: đăng nhập email riêng, dữ liệu chung trên Supabase, tự động nhận cập nhật, quyền thao tác ngang nhau. Tối đa 5 thành viên / nhóm.
-- **Chế độ dùng thử**: nếu chưa cấu hình, dữ liệu lưu ở localStorage trên đúng máy đang mở.
+Không cần Supabase. Có task chính / task nhỏ, danh mục, người thực hiện, người nhận thông tin, đầu mối, link tài liệu, trạng thái, ngày bắt đầu/deadline, lịch ngày/tuần/tháng, nhập/xuất JSON.
 
-## Thiết lập miễn phí
-1. Tạo tài khoản và project tại https://supabase.com/ (Free plan; hạn mức có thể thay đổi).
-2. Mở **SQL Editor** trên Supabase, dán toàn bộ `schema.sql`, bấm **Run**. Chạy trên project trống hoặc kiểm tra trùng tên trước.
-3. Mở **Project Settings → API** (hoặc **Connect → API Keys**), lấy **Project URL** và **anon/public publishable key**; dán vào `config.js`. Tuyệt đối không dán `service_role` / `secret` key vào web.
-4. Trong **Authentication → Providers → Email**, bật email đăng nhập (OTP / magic link). Email có thể bị giới hạn số lượng gửi trong Free plan.
-5. Đưa 4 file `index.html`, `app.js`, `config.js`, `schema.sql` (và README này nếu muốn) lên repo GitHub. Vào **Settings → Pages → Deploy from a branch → main → / (root)**. Trang sẽ có địa chỉ `https://TEN-USER.github.io/TEN-REPO/`.
-6. Trong Supabase **Authentication → URL Configuration**, đặt **Site URL** là URL GitHub Pages và thêm URL đó vào **Redirect URLs** (bao gồm dấu `/` cuối nếu website có).
-7. Mở web: mỗi người đăng nhập email cá nhân. Một người bấm **Tạo nhóm**, bấm **Sao chép mã mời** và gửi mã riêng cho các thành viên. Người khác đăng nhập rồi nhập mã mời để tham gia. Quyền giống nhau.
+## Kiến trúc bắt buộc: 2 repository
 
-### Những điều cần biết
-- Github Pages **không phải nơi lưu dữ liệu**. Dữ liệu nhóm nằm trong Supabase Postgres; tài liệu chỉ lưu **link**, không lưu nội dung tệp.
-- **Không để mã mời công khai**. Người có mã và tài khoản đăng nhập có thể tham gia nhóm (cho đến khi đủ 5 người). Mã mời mới chỉ hiển thị khi tạo nhóm; hãy cất giữ cẩn thận.
-- Các thông tin trong task có thể được mọi người trong cùng nhóm xem/sửa/xóa.
-- Khi bật Supabase, localStorage cũ **không tự chuyển** sang nhóm: hãy xuất JSON ở chế độ cá nhân trước, sau đó đăng nhập nhóm và nhập JSON.
-- Khi một người đang mở form sửa và người khác sửa cùng task, lần lưu sau sẽ ghi đè nội dung task đó (chưa có xử lý xung đột).
-- Realtime yêu cầu Supabase Realtime đang hoạt động; nếu mạng mất kết nối, tải lại trang để đồng bộ.
-- Đăng nhập bằng email chỉ chạy đúng khi trang web được phục vụ qua HTTP(S); không nên mở file HTML trực tiếp để dùng chung.
-- Với dữ liệu quan trọng, nên xuất JSON để sao lưu định kỳ. Không sử dụng nơi này để lưu bí mật hoặc tài liệu nhạy cảm nếu chưa đánh giá bảo mật.
+1. **`taskflow-web` (PUBLIC)**: dùng GitHub Pages, chỉ upload `index.html`, `app.js`, `README.md`. **KHÔNG upload folder `data/` vào repo web public nếu dữ liệu riêng tư.**
+2. **`taskflow-data` (PRIVATE)**: chỉ upload `data/tasks.json` từ ZIP, trên nhánh `main`. Không bật Pages cho repo này.
 
-## Chạy thử
-Mở `index.html` trực tiếp nếu chưa cấu hình cloud, hoặc chạy một static server: `python -m http.server 8000` rồi truy cập http://localhost:8000. Nếu bạn muốn dùng chế độ cloud ở localhost, thêm `http://localhost:8000/` vào danh sách Redirect URLs của Supabase.
+### Tạo repository web
 
-## Cấu trúc
-- `index.html`: giao diện.
-- `app.js`: xử lý task, calendar và đồng bộ.
-- `config.js`: cài đặt URL và publishable/anon key của Supabase.
-- `schema.sql`: cấu trúc Postgres + chính sách RLS + hàm tạo/tham gia nhóm.
+- GitHub → New repository → `taskflow-web` → **Public**.
+- Upload `index.html` + `app.js` vào thư mục gốc của repo (cùng cấp).
+- Settings → Pages → Deploy from a branch → `main` → `/ (root)` → Save.
+- Website: `https://<github-username>.github.io/taskflow-web/`.
+
+### Tạo repository dữ liệu
+
+- GitHub → New repository → `taskflow-data` → **Private**.
+- Upload `data/tasks.json`. GitHub có thể tạo thư mục bằng cách chọn **Add file → Create new file**, nhập `data/tasks.json`, dán nội dung `{ "version": 3, "tasks": [] }`, commit.
+- **Khuyến nghị:** tạo một GitHub Organization miễn phí, thêm cả hai tài khoản làm **organization members** rồi tạo `taskflow-data` Private dưới organization. Cấp hai người quyền **Write** trên repository. Cách này giúp mỗi người tạo fine-grained token giới hạn vào chính repository dữ liệu. Nếu tạo repository Private dưới tài khoản cá nhân và mời người thứ hai qua Collaborators, **fine-grained PAT của người cộng tác ngoài không hỗ trợ đầy đủ việc đóng góp vào repository đó** theo tài liệu GitHub; khi ấy cần GitHub App/OAuth phù hợp hoặc classic PAT có quyền `repo` (quyền rất rộng, không được khuyến nghị).
+- Cả hai có quyền sửa/xóa bất kỳ task nào trong ứng dụng. Người tạo repo có quyền quản trị repository; đây không phải hai quyền repo giống hệt nhau.
+
+### Mỗi người tạo token riêng
+
+- GitHub → Settings → Developer settings → Personal access tokens → **Fine-grained tokens** → Generate new token.
+- Resource owner: GitHub Organization sở hữu repository dữ liệu (cả hai phải là members). Repository access: **Only select repositories** → `taskflow-data`. Permissions → Repository permissions → **Contents: Read and write**; các quyền mặc định khác để tối thiểu. Chọn ngày hết hạn ngắn và gia hạn khi cần.
+- Organization có thể yêu cầu admin phê duyệt fine-grained token. Hai người cần quyền Write trong repo dữ liệu. Nếu token không được liệt kê repo, kiểm tra organization membership và approval.
+- Trên web TaskFlow: nhập `owner`, `repo=taskflow-data`, `branch=main`, và **token của chính mình** → Kết nối.
+- Token chỉ được giữ trong bộ nhớ JavaScript của tab hiện tại, **không lưu vào localStorage, file hay GitHub**. Reload trang sẽ phải nhập lại. Không chia sẻ token cho người khác. Nên dùng trình duyệt cá nhân và không cài extension lạ; XSS/malicious extension vẫn có thể đánh cắp token khi đã nhập.
+
+### Đồng bộ và xung đột
+
+- Web kiểm tra dữ liệu mỗi 30 giây khi tab đang mở và không có hộp thoại sửa task. Nút **Làm mới** cập nhật tức thời theo yêu cầu (không phải realtime push).
+- Khi lưu: luôn đọc `tasks.json` mới nhất rồi cập nhật đúng task và gửi PUT kèm blob SHA. Nếu GitHub trả 409, thử tải lại tối đa 3 lần.
+- Mỗi task có `revision`. Nếu hai người đã cùng mở một task, người lưu sau nhận thông báo **xung đột** và cần mở lại task; không âm thầm ghi đè.
+- Xóa task sử dụng cờ `deleted` để giữ được thông tin phiên bản và phát hiện sửa/xóa xung đột. Có thể khôi phục thủ công qua Git history.
+- Lưu là một commit trên GitHub mỗi lần cập nhật, phù hợp lượng task vừa phải; không thay thế database khi lưu liên tục hoặc lượng task lớn.
+- File dữ liệu trong repository Private chỉ dành cho người có quyền. **Không nhúng token hoặc dữ liệu riêng tư vào repository web Public.**
+
+### Chuyển dữ liệu từ TaskFlow v2
+
+- Đăng nhập vào v2 → Xuất JSON → mở v3 đã kết nối GitHub → Nhập JSON. Task sẽ được thêm như các công việc mới.
+
+### Trường hợp lỗi
+
+- `401`: token không hợp lệ/hết hạn.
+- `403`: token chưa có Contents Read and write, collaborator chưa được cấp quyền, hoặc chính sách tổ chức/giới hạn API.
+- `404`: sai owner/repo/branch/path hoặc chưa có quyền đọc Private repo.
+- `409`: xung đột SHA, hãy thao tác lại sau khi làm mới.
+- Browser mở trang `file://`: hãy dùng website HTTPS đã xuất bản trên GitHub Pages.
+
+**Lưu ý:** Chưa tích hợp thông báo email tự động hoặc tải file thực lên GitHub; chỉ lưu link. Chưa kiểm thử thực địa với token GitHub của bạn — cần kiểm tra trên tài khoản thật.
