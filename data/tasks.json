@@ -1,1 +1,42 @@
-{ "version": 3, "tasks": [] }
+{
+  "version": 3,
+  "tasks": [
+    {
+      "id": "7987af32-5d81-46ae-85ac-e764c665f0f3",
+      "created": 1794320506417,
+      "updated": 1794320506417,
+      "title": "kiểm tra thuốc của Bác Sĩ Ninh - Khoa nội 2",
+      "description": "ghi chú mẫu",
+      "category": "Phần mềm HIS",
+      "status": "Chưa bắt đầu",
+      "assignee": "Phi",
+      "watchers": "Phi",
+      "contacts": "BS. Ninh - Khoa nội 2",
+      "priority": "Bình thường",
+      "start": "2026-11-04",
+      "deadline": "2026-11-12",
+      "subtasks": [
+        {
+          "id": "44aaa843-509c-481f-af85-f9a7b84af765",
+          "title": "task 1",
+          "done": false
+        },
+        {
+          "id": "dc833f8c-d6fb-4c40-97c4-16321468555d",
+          "title": "task 2",
+          "done": false
+        }
+      ],
+      "links": [
+        {
+          "name": "ảnh 1",
+          "url": "https://github.com/audikan/taskflow/tree/main/data"
+        }
+      ],
+      "revision": 1,
+      "updatedBy": "audikan",
+      "deleted": false
+    }
+  ],
+  "updatedAt": "2026-11-10T14:21:47.118Z"
+}
