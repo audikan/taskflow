@@ -4,7 +4,7 @@
     {
       "id": "7987af32-5d81-46ae-85ac-e764c665f0f3",
       "created": 1794320506417,
-      "updated": 1794320506417,
+      "updated": 1794481328941,
       "title": "kiểm tra thuốc của Bác Sĩ Ninh - Khoa nội 2",
       "description": "ghi chú mẫu",
       "category": "Phần mềm HIS",
@@ -33,10 +33,10 @@
           "url": "https://github.com/audikan/taskflow/tree/main/data"
         }
       ],
-      "revision": 1,
+      "revision": 2,
       "updatedBy": "audikan",
-      "deleted": false
+      "deleted": true
     }
   ],
-  "updatedAt": "2026-11-10T14:21:47.118Z"
+  "updatedAt": "2026-11-12T11:02:08.941Z"
 }
