@@ -56,7 +56,27 @@
       "revision": 1,
       "updatedBy": "audikan",
       "deleted": false
+    },
+    {
+      "id": "4246e5f1-981f-4130-8562-ae751b671cce",
+      "created": 1794481529827,
+      "updated": 1794481529827,
+      "title": "Cập nhập nhóm máu",
+      "description": "",
+      "category": "HIS",
+      "status": "Chưa bắt đầu",
+      "assignee": "Phi",
+      "watchers": "Bông tuyết",
+      "contacts": "zalo: Bông tuyết",
+      "priority": "Thấp",
+      "start": "",
+      "deadline": "",
+      "subtasks": [],
+      "links": [],
+      "revision": 1,
+      "updatedBy": "audikan",
+      "deleted": false
     }
   ],
-  "updatedAt": "2026-11-12T11:03:25.354Z"
+  "updatedAt": "2026-11-12T11:05:30.539Z"
 }
