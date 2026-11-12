@@ -76,7 +76,27 @@
       "revision": 1,
       "updatedBy": "audikan",
       "deleted": false
+    },
+    {
+      "id": "a9e553be-5262-40df-9d1b-a91a39df3e46",
+      "created": 1794481638747,
+      "updated": 1794481638747,
+      "title": "Tổng hợp thuốc không được",
+      "description": "Khoa nội 4 / Lê thị kiều tiên.\nZencombi tủ trực ngày 11/11 16:55p không tìm thấy để tổng hợp",
+      "category": "HIS - Tổng hơp thuốc",
+      "status": "Chưa bắt đầu",
+      "assignee": "Phi",
+      "watchers": "Lan (nội 4)",
+      "contacts": "zalo: Nguyen Thi Lan",
+      "priority": "Bình thường",
+      "start": "2026-11-12",
+      "deadline": "",
+      "subtasks": [],
+      "links": [],
+      "revision": 1,
+      "updatedBy": "audikan",
+      "deleted": false
     }
   ],
-  "updatedAt": "2026-11-12T11:05:30.539Z"
+  "updatedAt": "2026-11-12T11:07:19.475Z"
 }
