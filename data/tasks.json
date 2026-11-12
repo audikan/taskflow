@@ -156,7 +156,27 @@
       "revision": 2,
       "updatedBy": "audikan",
       "deleted": false
+    },
+    {
+      "id": "41c4986b-2b30-449d-a712-b9140f059692",
+      "created": 1794482419006,
+      "updated": 1794482419006,
+      "title": "Nguyễn Ngọc Sơn - Giấy tờ EMR",
+      "description": "khoa nội C, Bệnh án Trang 1 sai thông tin",
+      "category": "",
+      "status": "Chưa bắt đầu",
+      "assignee": "Phi",
+      "watchers": "Đặng Minh Tâm",
+      "contacts": "Đặng Minh Tâm",
+      "priority": "Bình thường",
+      "start": "",
+      "deadline": "",
+      "subtasks": [],
+      "links": [],
+      "revision": 1,
+      "updatedBy": "audikan",
+      "deleted": false
     }
   ],
-  "updatedAt": "2026-11-12T11:18:07.385Z"
+  "updatedAt": "2026-11-12T11:20:19.725Z"
 }
