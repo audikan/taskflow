@@ -36,7 +36,27 @@
       "revision": 2,
       "updatedBy": "audikan",
       "deleted": true
+    },
+    {
+      "id": "ade4d84d-b85d-467b-a3de-eaf35cf3b612",
+      "created": 1794481404628,
+      "updated": 1794481404628,
+      "title": "1. giấy tờ bản thân (giấy xác nhận đơn vị, giấy ủy quyền, phiếu đăng ký đoàn)",
+      "description": "bỏ hồ sơ hết mai ký",
+      "category": "giấy tờ",
+      "status": "Đang thực hiện",
+      "assignee": "Phi",
+      "watchers": "",
+      "contacts": "",
+      "priority": "Cao",
+      "start": "2026-11-12",
+      "deadline": "2026-11-13",
+      "subtasks": [],
+      "links": [],
+      "revision": 1,
+      "updatedBy": "audikan",
+      "deleted": false
     }
   ],
-  "updatedAt": "2026-11-12T11:02:08.941Z"
+  "updatedAt": "2026-11-12T11:03:25.354Z"
 }
