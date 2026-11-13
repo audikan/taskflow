@@ -140,11 +140,11 @@
     {
       "id": "22bf6cab-d6c7-407a-b77d-f78b246815ad",
       "created": 1794482270658,
-      "updated": 1794482286801,
+      "updated": 1794535564613,
       "title": "Kiểm tra mã giường",
       "description": "Nguyễn Thành Tâm / Nội 3\nkiểm lỗi hồ sơ không có mã giường",
       "category": "Lỗi HIS",
-      "status": "Chưa bắt đầu",
+      "status": "Đang thực hiện",
       "assignee": "",
       "watchers": "",
       "contacts": "Dương N3",
@@ -153,7 +153,7 @@
       "deadline": "",
       "subtasks": [],
       "links": [],
-      "revision": 2,
+      "revision": 3,
       "updatedBy": "audikan",
       "deleted": false
     },
@@ -178,5 +178,5 @@
       "deleted": false
     }
   ],
-  "updatedAt": "2026-11-13T02:05:49.590Z"
+  "updatedAt": "2026-11-13T02:06:05.219Z"
 }
