@@ -100,11 +100,11 @@
     {
       "id": "a40e9fb6-b712-477f-922d-fccdaceec586",
       "created": 1794482101858,
-      "updated": 1794482101858,
+      "updated": 1794535590373,
       "title": "cấp quyền cho bs Trần Ngọc Nam ký bìa",
       "description": "cấp quyền cho bs Trần Ngọc Nam ký bìa bệnh án cũ:\nNguyễn Lê Trọng Dự / nội 3",
       "category": "Phân quyền His",
-      "status": "Chưa bắt đầu",
+      "status": "Hoàn thành",
       "assignee": "Phi",
       "watchers": "BS",
       "contacts": "cấp quyền cho bs Trần Ngọc Nam ký bìa",
@@ -113,7 +113,7 @@
       "deadline": "2026-11-13",
       "subtasks": [],
       "links": [],
-      "revision": 1,
+      "revision": 2,
       "updatedBy": "audikan",
       "deleted": false
     },
@@ -178,5 +178,5 @@
       "deleted": false
     }
   ],
-  "updatedAt": "2026-11-13T02:06:18.553Z"
+  "updatedAt": "2026-11-13T02:06:30.964Z"
 }
